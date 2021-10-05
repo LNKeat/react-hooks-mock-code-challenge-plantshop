@@ -98,6 +98,7 @@ input:focus {
 }
 
 .cards {
+  display: flex;
   list-style: none;
 }
 
@@ -111,6 +112,14 @@ input:focus {
 
 .card button {
   margin-top: 0.5rem;
+}
+
+.card stock {
+  flex-grow: 3;
+}
+
+.card trash {
+  flex-grow: 1;
 }
 
 @media (min-width: 768px) {
