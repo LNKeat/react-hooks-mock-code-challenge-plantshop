@@ -16,12 +16,12 @@ h2 {
   margin-bottom: 1rem;
 }
 
-button {
+/* button {
   padding: 0.25rem 1rem;
   font-family: inherit;
   border: none;
   cursor: pointer;
-}
+} */
 
 button.primary {
   background-color: var(--green);
@@ -33,11 +33,45 @@ button.primary {
   max-width: 1200px;
 }
 
-header h1 {
+.navbar-container {
+  display: flex;
+  align-items: center;
+  padding: 0.05em 2em 0 2em;
+}
+.navbar-first {
+  flex: 4;
   font-size: 2.5em;
   font-weight: 900;
-  text-align: center;
-  padding: 0.5rem 0;
+  text-align: left;
+}
+.navbar-second {
+  background-color: yellow;
+  flex: 1;
+}
+.navbar-third {
+  background-color: yellow;
+  flex: 1;
+}
+.navbar-fourth {
+  background-color: yellow;
+  flex: 1;
+}
+
+button {
+  border: solid 0.2em rgba(181, 250, 181, 0.5);
+  box-shadow: 5px 2px grey;
+  border-radius: 0.2em;
+  padding: 0.4em;
+  margin: 0.2em;
+  font-size: 0.7em;
+  font-family: inherit;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgba(181, 250, 181, 0.5);
+  box-shadow: 8px 5px grey;
+  font-size: 0.9em;
+  color: black;
 }
 
 .logo {
@@ -110,16 +144,19 @@ input:focus {
   width: 100%;
 }
 
-.card button {
-  margin-top: 0.5rem;
+.card-button-container {
+  display: flex;
+  align-items: stretch;
 }
 
-.card stock {
-  flex-grow: 3;
+button.price {
+  flex: 2;
 }
-
-.card trash {
-  flex-grow: 1;
+button.stock {
+  flex: 2;
+}
+button.trash {
+  flex: 0.5;
 }
 
 @media (min-width: 768px) {
@@ -132,6 +169,11 @@ input:focus {
     width: calc(33% - 2rem);
   }
 }
+
+.form-container {
+  display: flex;
+}
+
 
 @media (min-width: 1024px) {
   .card {

@@ -22,16 +22,8 @@ function PriceForm({ plant, updatePlants, togglePriceForm }){
     })
   }
   return (
-    <form>
-      <input type="number" step="0.01" value={plantPrice} onChange={(e)=> setPlantPrice(e.target.value)} style={{
-          backgroundColor: 'black',
-          color: 'white',
-          borderStyle: 'solid 1px black', 
-          fontFamily: 'san serif',
-          fontSize: '12px',
-          width: '40%'
-          }}
-       />
+    <form className="form-container">
+      <input className="price-input" type="number" step="0.01" value={plantPrice} onChange={(e)=> setPlantPrice(e.target.value)}/>
       <button onClick={handleUpdate}>Submit</button>
     </form>
   )

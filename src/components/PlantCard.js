@@ -1,22 +1,22 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PriceForm from "./PriceForm";
 
 function PlantCard({ plant, removePlant, updatePlants }) {
-  const[inStock, setInStock] = useState(true)
-  const[isPriceForm, setIsPriceForm] = useState(false)
+  const [inStock, setInStock] = useState(true)
+  const [isPriceForm, setIsPriceForm] = useState(false)
 
-  function toggleStock(){
+  function toggleStock() {
     setInStock(!inStock)
   }
-  
-  function handleDelete(){
+
+  function handleDelete() {
     fetch(`http://localhost:6001/plants/${plant.id}`, {
-      method : 'DELETE',
+      method: 'DELETE',
     })
-    .then(() => removePlant(plant))
+      .then(() => removePlant(plant))
   }
 
-  function togglePriceForm(){
+  function togglePriceForm() {
     setIsPriceForm(!isPriceForm)
   }
 
@@ -25,16 +25,17 @@ function PlantCard({ plant, removePlant, updatePlants }) {
       <img src={plant.image} alt={plant.name} />
       <h4>{plant.name}</h4>
       <p>Price: $ {plant.price}</p>
-      <button onClick={togglePriceForm}>Change price</button>
-      {isPriceForm ? <PriceForm plant={plant} updatePlants={updatePlants} togglePriceForm={togglePriceForm} /> : null }
-       
-        
-      {inStock ? (
-        <button className="stock primary" onClick={toggleStock}>In Stock</button>
-      ) : (
-        <button className="stock" onClick={toggleStock}>Out of Stock</button>
-      )}
-      <button className="trash" onClick={handleDelete}>🗑️</button>
+      <div className="card-button-container">
+        <button className="price" onClick={togglePriceForm}>Change price</button>
+        {inStock ? (
+          <button className="stock primary" onClick={toggleStock}>In Stock</button>
+        ) : (
+          <button className="stock" onClick={toggleStock}>Out of Stock</button>
+        )}
+        <button className="trash" onClick={handleDelete}>🗑️</button>
+      </div>
+        {isPriceForm ? <PriceForm plant={plant} updatePlants={updatePlants} togglePriceForm={togglePriceForm} /> : null}
+  
     </li>
   );
 }
